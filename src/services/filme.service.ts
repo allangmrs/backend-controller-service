@@ -17,7 +17,13 @@ export class FilmeService{
 
     async delete(id: number)
     {
+        const filme = await prisma.filme.delete({
+            where: {
+                id: id
+            }
+        });
 
+        return filme;
     }
 
     async findAll()
