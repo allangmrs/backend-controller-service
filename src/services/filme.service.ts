@@ -4,7 +4,15 @@ export class FilmeService{
 
     async create(dados: {titulo: string; nota: number; imagem: string; })
     {
+        const filme = await prisma.filme.create({
+            data: {
+                titulo: dados.titulo,
+                nota: dados.nota,
+                imagem: dados.imagem
+            }
+        });
 
+        return filme;
     }
 
     async delete(id: number)
