@@ -40,7 +40,15 @@ export class FilmeService{
 
     async update(id:number, dados: {titulo: string; nota: number; imagem: string; })
     {
+        const filme = await prisma.filme.update({
+            where: {
+                id: id
+            },
+            data: dados
+            
+        });
 
+        return filme;
     }
 
 }
